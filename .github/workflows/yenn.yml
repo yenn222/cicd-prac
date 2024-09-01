@@ -80,5 +80,5 @@ jobs:
           ssh -J ${{ secrets.SSH_BASTION_USER }}@${{ secrets.SSH_BASTION_HOST }}:10020 \
           -i /tmp/new_id -r "$GITHUB_WORKSPACE/"* \
           ${{ secrets.SSH_TARGET_USER }}@${{ secrets.SSH_TARGET_HOST }}:~/app
-      
-      
+
+

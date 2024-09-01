@@ -61,10 +61,10 @@ jobs:
 
       - name: SSH 파일 저장
         run: |
-          echo "${{ secreats.SSH_PRIVATE_KEY }}" > /tmp/new_id
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/new_id
           chmod 600 /tmp/new_id
 
       - name: Bastion 연결 테스트
         run: |
-          ssh -o StrictHostKeyChecking=no -i /tmp/new_id \
+          ssh -o StrictHostKeyChecking=no -i /tmp/new_id\
             ${{ secrets.SSH_BASTION_USER }}@${{ secrets.SSH_BASTION_HOST }} -p 10020 "echo Bastion에 연결 성공"

@@ -81,4 +81,12 @@ jobs:
           -i /tmp/new_id -r "$GITHUB_WORKSPACE/"* \
           ${{ secrets.SSH_TARGET_USER }}@${{ secrets.SSH_TARGET_HOST }}:~/app
 
-
+      - name: 의존성 설치 및 서버 재구동
+        run: |
+          ssh -J ${{ secrets.SSH_BASTION_USER }}@${{ secrets.SSH_BASTION_HOST }}:10020 \
+          -i /tmp/new_id ${{ secrets.SSH_TARGET_USER }}@${{ secrets.SSH_TARGET_HOST }} <<'ENDSSH'
+            cd ~/app
+            $HOME/.asdf/shims/bun install
+            $HOME/.asdf/shims/pm2 start ecosystem.config.cjs
+            echo "Development successfulll!!!"
+          ENDSSH

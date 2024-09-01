@@ -75,7 +75,7 @@ jobs:
           -o StrictHostKeyChecking=no -i /tmp/new_id \
           ${{ secrets.SSH_TARGET_USER }}@${{ secrets.SSH_TARGET_HOST }} "echo 개인 서버에 연결 성공"
 
-      - name: 개인 서버에 파일 복사
+      - name: 개인 서버에 파일 복살
         run: |
           scp -J ${{ secrets.SSH_BASTION_USER }}@${{ secrets.SSH_BASTION_HOST }}:10020 \
           -i /tmp/new_id -r "$GITHUB_WORKSPACE/"* \

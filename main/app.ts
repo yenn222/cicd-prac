@@ -6,7 +6,7 @@ const server = Bun.serve({
     const path = new URL(req.url).pathname;
 
     if (path === "/") {
-      return new Response(Bun.file("./yenn.html"));
+      return new Response(Bun.file("main/yenn.html"));
     }
 
     return new Response("Not found", { status: 404 });

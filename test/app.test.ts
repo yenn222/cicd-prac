@@ -27,7 +27,7 @@ describe("Bun server", () => {
     const response = await fetch(request);
     const message = await response.text();
     expect(response.status).toBe(200);
-    expect(message).toBe("Welcome to Bun!");
+    expect(message).toBe("임옌이다!");
   });
 
   test("should return 'Not found' for a non-existent path", async () => {

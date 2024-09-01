@@ -17,3 +17,20 @@ jobs:
           bun-version: '1.1.26' #버전 작성
 
       - run: bun install
+
+  test:
+    runs-on: ubuntu-latest
+    needs: setup #셋업에 의존한다
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bun 셋업
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Bun 환경검증
+        run: bun --version
+
+      - name: 테스트 수행
+        run: bun test

@@ -10,7 +10,7 @@ describe("Bun server", () => {
         const path = new URL(req.url).pathname;
 
         if (path === "/") {
-          return new Response("Welcome to Bun!");
+          return new Response("임옌이다!");
         }
 
         return new Response("Not found", { status: 404 });
